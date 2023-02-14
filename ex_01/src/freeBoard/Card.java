@@ -5,19 +5,18 @@ public class Card {
 	String suit;
 	String grade;
 	int value;
-	
+
 	public Card(String suit, String grade) {
 		this.suit = suit;
 		this.grade = grade;
 	}
-	
+
 	public Card(String suit, String grade, int value) {
 		this.suit = suit;
 		this.grade = grade;
 		this.value = value;
 	}
-	
-	
+
 	public int getValue() {
 		return value;
 	}
@@ -27,11 +26,7 @@ public class Card {
 	}
 
 	public void showInfo() {
-		System.out.println(suit + " " + grade);
+		System.out.print(suit + " " + grade + "  ");
 	}
 
-	
-	
-	
-	
 }
