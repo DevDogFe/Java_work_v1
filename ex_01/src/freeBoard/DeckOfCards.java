@@ -8,6 +8,20 @@ public class DeckOfCards {
 	public DeckOfCards(int id) {
 		this.id = id;
 		cards = new Card[52];
+//		String[] suits = {"♠", "◇", "♡", "♣"};
+//		String[] grade = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+//		for(int i = 0; i < suits.length; i++) {
+//			for(int j = 0; j < grade.length; j++) {
+//				int k = 0;
+//				cards[k] = new Card(suits[i], grade[j], j + 1);
+//				if(j == 0) {
+//					cards[k].setValue(11);
+//				} else if (j > 9) {
+//					cards[k].setValue(10);
+//				}
+//				k++;
+//			}
+//		}
 		cards[0] = new Card("♠", "A", 11);
 		cards[1] = new Card("♠", "2", 2);
 		cards[2] = new Card("♠", "3", 3);

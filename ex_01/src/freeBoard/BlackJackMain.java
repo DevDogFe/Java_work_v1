@@ -37,20 +37,6 @@ public class BlackJackMain {
 
 	}// end of main
 	
-	static void shuffle(boolean[] dealing, Card[] cards, int r, int w, Random random, DeckOfCards.Card[] deckOfCards) {
-		for (int i = 0; i < dealing.length; i++) {
-			dealing[i] = false;
-		}
-
-		while (w < 52) {
-			r = random.nextInt(52);
-			if (dealing[r] == false) {
-				dealing[r] = true;
-				cards[w] = deckOfCards.cards[r];
-				w++;
-				;
-			}
-		} // shuffle
-	}
+	
 
 }// end of class
