@@ -33,6 +33,10 @@ public class StringTest3 {
 		// 2.
 		String result2 = builder + ": 반가워";
 		
+		// 정리
+		// StringBuilder는 문자열을 다룰 때 한번 생성한 문자열을 변경하더라도
+		// 메모리를 새로 생성하지 않는다.
+		
 
 	}// end of main
 
