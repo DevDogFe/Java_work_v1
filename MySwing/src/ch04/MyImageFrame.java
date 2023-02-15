@@ -17,7 +17,7 @@ public class MyImageFrame extends JFrame{
 		private Image image;
 		
 		public ImagePanel() {
-			image = new ImageIcon("image1.png").getImage();
+			image = new ImageIcon("images/image1.png").getImage();
 		}
 		
 		@Override

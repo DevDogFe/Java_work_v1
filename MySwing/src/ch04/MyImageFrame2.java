@@ -19,10 +19,10 @@ public class MyImageFrame2 extends JFrame {
 		private Image image4;
 
 		public ImagePanel() {
-			image = new ImageIcon("image3.png").getImage();
-			image2 = new ImageIcon("image4.png").getImage();
-			image3 = new ImageIcon("image5.png").getImage();
-			image4 = new ImageIcon("image6.png").getImage();
+			image = new ImageIcon("images/image3.png").getImage();
+			image2 = new ImageIcon("images/image4.png").getImage();
+			image3 = new ImageIcon("images/image5.png").getImage();
+			image4 = new ImageIcon("images/image6.png").getImage();
 		}
 
 		@Override
@@ -53,6 +53,10 @@ public class MyImageFrame2 extends JFrame {
 		add(imagePanel);
 		setVisible(true);
 
+	}
+	
+	public static void main(String[] args) {
+		new MyImageFrame2();
 	}
 
 }
