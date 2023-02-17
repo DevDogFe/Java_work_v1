@@ -1,5 +1,6 @@
 package ch09;
 
+import java.util.Arrays;
 import java.util.Random;
 
 // SRP: 단일 책임 원칙
@@ -29,9 +30,8 @@ public class LottoNumber {
 					break;
 				}
 			}
-			
 		}
-		
+		Arrays.sort(lottoNumbers);
 		return lottoNumbers;
 	}
 	
