@@ -1,4 +1,4 @@
-package ex02;
+package ex03;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -17,6 +17,8 @@ public class BubbleFrame extends JFrame {
 		initData();
 		setInitLayout();
 		addEventListener();
+		new Thread(new BackgroundPlayerService(player)).start();
+
 	}
 
 	private void initData() {
@@ -33,7 +35,6 @@ public class BubbleFrame extends JFrame {
 		setVisible(true);
 		setResizable(false);
 		setLocationRelativeTo(null); // JFrame 가운데 배치
-
 	}
 
 	private void addEventListener() {
@@ -42,11 +43,15 @@ public class BubbleFrame extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_LEFT:
-					player.left();
+					if (!player.isLeft() && !player.isLeftWallCrash()) {
+						player.left();
+					}
 					break;
 
 				case KeyEvent.VK_RIGHT:
-					player.right();
+					if(!player.isRight() && !player.isRightWallCrash()) {
+						player.right();
+					}
 					break;
 
 				case KeyEvent.VK_UP:
@@ -58,7 +63,7 @@ public class BubbleFrame extends JFrame {
 
 				}
 			}// end of pressed
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
 				switch (e.getKeyCode()) {
@@ -66,7 +71,7 @@ public class BubbleFrame extends JFrame {
 					// 버튼을 떼면 player 정지
 					player.setLeft(false);
 					break;
-					
+
 				case KeyEvent.VK_RIGHT:
 					// 버튼을 떼면 player 정지
 					player.setRight(false);
@@ -74,7 +79,7 @@ public class BubbleFrame extends JFrame {
 
 				}
 			} // end of released
-			
+
 		});
 	}
 

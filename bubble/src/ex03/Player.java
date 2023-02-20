@@ -1,4 +1,4 @@
-package ex02;
+package ex03;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -12,15 +12,52 @@ public class Player extends JLabel implements Movable {
 	private boolean right;
 	private boolean up;
 	private boolean down;
+	// 벽에 충돌한 상태
+	private boolean leftWallCrash;
+	private boolean rightWallCrash;
 	// 플레이어 상태
 	private final int SPEED = 4;
 	private final int JUMP_SPEED = 2;
-	
+
 	// setter 메서드 left right
 
 	public Player() {
 		initData();
 		setInitLayout();
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	
+	
+	public boolean isLeftWallCrash() {
+		return leftWallCrash;
+	}
+
+	public void setLeftWallCrash(boolean leftWallCrash) {
+		this.leftWallCrash = leftWallCrash;
+	}
+
+	public boolean isRightWallCrash() {
+		return rightWallCrash;
+	}
+
+	public void setRightWallCrash(boolean rightWallCrash) {
+		this.rightWallCrash = rightWallCrash;
+	}
+
+	public boolean isLeft() {
+		return left;
+	}
+
+	public boolean isRight() {
+		return right;
 	}
 
 	public void setLeft(boolean left) {
@@ -38,10 +75,12 @@ public class Player extends JLabel implements Movable {
 		right = false;
 		up = false;
 		down = false;
+		leftWallCrash = false;
+		rightWallCrash = false;
 	}
 
 	private void setInitLayout() {
-		x = 55;
+		x = 500;
 		y = 535;
 		// 좌표기반, 라벨 크기 지정
 		setSize(50, 50);
@@ -57,10 +96,10 @@ public class Player extends JLabel implements Movable {
 		setIcon(playerL);
 		// 한번 키보다 왼쪽 방향 키를 누르면 쓰레드 생성
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				while(left) {
+				while (left) {
 					setIcon(playerL);
 					x -= SPEED;
 					setLocation(x, y);
@@ -70,8 +109,8 @@ public class Player extends JLabel implements Movable {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				}// end of while
-				
+				} // end of while
+
 			}
 		}).start();
 
@@ -82,12 +121,12 @@ public class Player extends JLabel implements Movable {
 		right = true;
 		left = false;
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				while (right) {
 					setIcon(playerR);
-					x += SPEED; 
+					x += SPEED;
 					setLocation(x, y);
 					try {
 						Thread.sleep(10);
@@ -96,19 +135,20 @@ public class Player extends JLabel implements Movable {
 						e.printStackTrace();
 					}
 				}
-				
+
 			}
-		}).start();;
+		}).start();
+		;
 	}
 
 	@Override
 	public void up() {
 		up = true;
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				for(int i = 0; i < 130 / JUMP_SPEED; i++) {
+				for (int i = 0; i < 130 / JUMP_SPEED; i++) {
 					y -= JUMP_SPEED;
 					setLocation(x, y);
 					try {
@@ -118,11 +158,10 @@ public class Player extends JLabel implements Movable {
 						e.printStackTrace();
 					}
 				}
-				
+
 				up = false;
 				down();
-				
-				
+
 			}
 		}).start();
 	}
@@ -131,11 +170,11 @@ public class Player extends JLabel implements Movable {
 	public void down() {
 		down = true;
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
-				
-				for(int i = 0; i < 130 / JUMP_SPEED; i++) {
+
+				for (int i = 0; i < 130 / JUMP_SPEED; i++) {
 					y += JUMP_SPEED;
 					setLocation(x, y);
 					try {
@@ -146,7 +185,7 @@ public class Player extends JLabel implements Movable {
 					}
 				}
 				down = false;
-				
+
 			}
 		}).start();
 	}
