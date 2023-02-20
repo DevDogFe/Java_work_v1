@@ -6,8 +6,8 @@ public class ThreadTest02 {
 
 		System.out.println("---------메인 시작----------");
 		Worker2 worker1 = new Worker2(1);
-		worker1.start();
 		worker1.run();
+		worker1.start();
 		System.out.println();
 		System.out.println("---------메인 종료----------");
 		
