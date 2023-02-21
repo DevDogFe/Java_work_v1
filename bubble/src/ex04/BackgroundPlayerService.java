@@ -37,12 +37,11 @@ public class BackgroundPlayerService implements Runnable {
 			Color rightColor = new Color(image.getRGB(player.getX() + 60, player.getY() + 25));
 			// Color bottomColorLeft = new Color(image.getRGB(player.getX() + 5,
 			// player.getY() + 60));
-			int bottomColorLeft = image.getRGB(player.getX() + 10, player.getY() + 55);
-			int bottomColorRight = image.getRGB(player.getX() + 45, player.getY() + 55);
+			int bottomColorLeft = image.getRGB(player.getX() + 15, player.getY() + 53);
+			int bottomColorRight = image.getRGB(player.getX() + 45, player.getY() + 53);
 			// 하얀색이 아니면 바닥이다
 
 			if (bottomColorLeft + bottomColorRight != -2) {
-				System.out.println("여기는 바닥");
 				player.setDown(false);
 			} else {
 				if (player.isUp() == false && player.isDown() == false) {
@@ -62,7 +61,7 @@ public class BackgroundPlayerService implements Runnable {
 			}
 
 			try {
-				Thread.sleep(2);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
