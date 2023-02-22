@@ -4,6 +4,7 @@ public abstract class Player {
 
 	Card[] cards;
 	Calculator calculator;
+	int sum;
 
 	public Player() {
 
@@ -21,7 +22,6 @@ public abstract class Player {
 			}
 		}
 		return 0;
-
 	}
 
 	public void showinfo() {
@@ -30,6 +30,12 @@ public abstract class Player {
 				cards[i].showInfo();
 			} 
 		}
+		System.out.println("");
+	}
+	
+	public int calculate() {
+		int sum = new Calculator().calculate(cards);
+		return sum;
 	}
 
 }

@@ -23,6 +23,7 @@ public class BlackJackMain {
 		int w = 0;
 		int k = 0;
 		int userChoice;
+		int dealerSum = 0;
 		boolean flag = true;
 
 		// shuffle 시작
@@ -35,7 +36,6 @@ public class BlackJackMain {
 				dealing[r] = true;
 				cards[w] = deckOfCards.cards[r];
 				w++;
-				;
 			}
 		} // shuffle 끝
 
@@ -56,6 +56,10 @@ public class BlackJackMain {
 				userChoice = scanner.nextInt();
 				if(userChoice == HIT) {
 					k = user.hit(cards, k);
+					if(user.calculate() > 21) {
+						System.out.println("버스트 되었습니다. (유저 점수: " + user.calculate() + ")");
+						flag = false;
+					}
 					user.showinfo();
 				} else if(userChoice == DOUBLE_DOWN) {
 					k = user.hit(cards, k);
@@ -67,6 +71,15 @@ public class BlackJackMain {
 				}
 			}// end of inner while
 			user.showinfo();
+			System.out.println("유저 점수: " + user.calculate());
+			if(user.calculate() > 21) {
+				System.out.println("유저 점수가 21점을 초과하여 버스트되었습니다.");
+			} else if(user.calculate() == 21) {
+				System.out.println(">>BLACK JACK!! Congratulation!<<");
+			}
+			
+			
+			
 			flag = true;
 			flag = false;
 
