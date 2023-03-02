@@ -1,4 +1,4 @@
-package ex08;
+package ex10;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -209,7 +209,6 @@ public class Player extends JLabel implements Movable {
 			public void run() {
 				
 				while(down) {
-					
 
 					y += JUMP_SPEED;
 					setLocation(x, y);
@@ -227,7 +226,7 @@ public class Player extends JLabel implements Movable {
 	}
 	
 	public void attack() {
-		Bubble bubble = new Bubble(this);
+		Bubble bubble = new Bubble(mContext);
 		// 부모의 .add();
 		mContext.add(bubble);
 	}

@@ -1,4 +1,4 @@
-package ex08;
+package ex09;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -209,7 +209,6 @@ public class Player extends JLabel implements Movable {
 			public void run() {
 				
 				while(down) {
-					
 
 					y += JUMP_SPEED;
 					setLocation(x, y);

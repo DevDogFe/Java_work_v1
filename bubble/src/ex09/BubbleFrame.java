@@ -1,4 +1,4 @@
-package ex08;
+package ex09;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -8,8 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import ex09.Enemy;
-
 // ** 메인을 가지는 클래스는 프로그램에 사용하는 참조 변수를 다 알 수 있다.
 public class BubbleFrame extends JFrame {
 
@@ -18,7 +16,6 @@ public class BubbleFrame extends JFrame {
 	
 	private JLabel backgroundMap;
 	private Player player;
-	private Enemy enemy;
 
 	public BubbleFrame() {
 		initData();
@@ -35,13 +32,10 @@ public class BubbleFrame extends JFrame {
 		setContentPane(backgroundMap);
 		// 부모의 주소값을 자식 객체에게 던져준다.
 		player = new Player(mContext);
-		// enemy 생성
-		enemy = new Enemy();
 	}
 
 	private void setInitLayout() {
 		add(player);
-		add(enemy);
 		setLayout(null); // = absolute 레이아웃
 		setVisible(true);
 		setResizable(false);
