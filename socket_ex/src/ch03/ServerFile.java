@@ -41,7 +41,6 @@ public class ServerFile {
 			try {
 				bufferedReader.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

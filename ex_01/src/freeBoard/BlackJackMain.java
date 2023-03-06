@@ -69,7 +69,7 @@ public class BlackJackMain {
 				} else {
 					System.out.println("잘못입력하였습니다.");
 				}
-			}// end of inner while
+			}// end of inner while1
 			user.showinfo();
 			System.out.println("유저 점수: " + user.calculate());
 			if(user.calculate() > 21) {
@@ -77,7 +77,21 @@ public class BlackJackMain {
 			} else if(user.calculate() == 21) {
 				System.out.println(">>BLACK JACK!! Congratulation!<<");
 			}
-			
+			while(dealer.calculate() < 18) {
+				k = dealer.hit(cards, k);
+			}// end of inner while2
+			dealer.showinfo();
+			if (user.calculate() == dealer.calculate()) {
+				System.out.println("무승부");
+			} else if (user.calculate() > 21) {
+				System.out.println("딜러 승(유저 버스트)");
+			} else if (dealer.calculate() > 21) {
+				System.out.println("유저 승(딜러 버스트)");
+			} else if (user.calculate() > dealer.calculate()) {
+				System.out.println("유저 승");
+			} else if (user.calculate() < dealer.calculate()) {
+				System.out.println("딜러 승");
+			}
 			
 			
 			flag = true;
